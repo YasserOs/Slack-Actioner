@@ -5,13 +5,19 @@ name: Terraform CI/CD
 # events but only for the main branch
 on:
   workflow_dispatch:
-  push:
-    branches: [master]
-    paths: ["terraform/**"]
+    inputs:
+      test:
+        type: choice
+        options:
+          - test1
+          - test2
+  # push:
+  #   branches: [master]
+  #   paths: ["terraform/**"]
 
-  pull_request:
-    branches: [master]
-    paths: ["terraform/**"]
+  # pull_request:
+  #   branches: [master]
+  #   paths: ["terraform/**"]
 jobs:
   terraform:
     name: 'Terraform'
